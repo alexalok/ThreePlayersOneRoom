@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "ThreePlayersOneRoom.Client": {
+      "commandName": "Project",
+      "commandLineArgs": "http://localhost:5281/ e6c92704-5478-49ce-a709-ccd5c1617a34"
+    }
+  }
+}
