@@ -28,8 +28,12 @@ public class SessionsHandlerWork : BackgroundService
         {
             ExecuteInternal(stoppingToken);
         }
-        catch (TaskCanceledException)
+        catch (OperationCanceledException)
         {
+            // Cancelling on BlockingCollection throws OperationCanceledException
+            // instead of TaskCancelledException. Since the latter is a child of the former
+            // we can simply catch the parent one.
+
             await Task.WhenAll(_runningSessions.Values);
         }
     }
